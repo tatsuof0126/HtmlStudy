@@ -1,0 +1,30 @@
+h1 {
+	font-size: 32px;
+	color: #0000FF;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+th,td {
+	border: solid 3px #666666;
+	width: 100px;
+}
+
+th.kuhaku {
+	background-color: #666666;
+}
+
+td {
+	text-align: right;
+}
+
+thead {
+	background-color: #000000;
+	color: #FFFFFF;
+}
+
+tbody {
+	background-color: #FFCC66;
+}

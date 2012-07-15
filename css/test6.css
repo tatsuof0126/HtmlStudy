@@ -1,0 +1,28 @@
+h1 {
+	
+}
+
+
+h2 {
+	background-color: #FFCC00;
+	
+}
+
+ol.level1 {
+	list-style-type: decimal-leading-zero;
+}
+
+ol.level2 {
+	list-style-type: upper-roman;
+}
+
+#navi {
+	list-style-type: none;
+	background-color: #00FF00;
+	width: 150px;
+	float: left;
+	border-left: solid 20px #0000FF;
+	margin-right: 30px;
+	padding-left: 10px;	
+	
+}
