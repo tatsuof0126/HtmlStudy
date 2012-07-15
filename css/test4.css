@@ -6,6 +6,8 @@ body{
 	background-size: cover;
 	padding-left: 10px;
 	padding-right: 50px;
+	width: 600px;
+	margin: 0px auto 0px;
 	/*
 	*/
 }
@@ -28,6 +30,10 @@ h1{
 */
 	opacity: 0.8;
 	float: left;
+}
+
+#maindiv {
+	width: 600px;
 }
 
 a {
