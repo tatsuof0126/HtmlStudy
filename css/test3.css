@@ -1,0 +1,77 @@
+body{
+	background-color: #111111;
+	color: #99FFFF;
+	background-image: url("../image/background.jpg");
+	background-repeat: repeat-y;
+	background-attachment: fixed;
+	background-size: cover;
+	padding-left: 10px;
+	/*
+	*/
+}
+
+
+h1{
+	background-color: #FFFFFF;
+	color: #FF0000;
+	font-size: 24pt;
+	font-style: italic;
+}
+
+h2.waku{
+	width: 500px;
+	font-size: 18px;
+	border-left: solid 8px #FF9900;
+	border-bottom: solid 3px #FF9900;
+	padding-left: 5px;
+	margin-left: 20px;
+	
+}
+
+p.hosoku{
+	font-size: 10pt;
+	color: #00FF00;
+}
+
+.futoku{
+	font-size: 14pt;
+	font-style: italic;
+	font-weight: bold;
+}
+
+#idshitei{
+	color: #0000FF;
+}
+
+#px400{
+	width: 600px;
+	height: 70px;
+	background-color: rgba(255,0,0,0.2);
+	border: groove 10px #00FF00;
+	margin-left: 50px;
+	
+}
+
+#cen{
+	width: 500px;
+	background-color: #FF9900;
+	margin: 10px auto 10px;
+	
+}
+
+
+#slime{
+	margin-left: 20px;
+	width: 300px;
+	border-radius: 25px;
+	box-shadow: 20px 20px 5px 0px #666666;
+	opacity: 0.5;
+}
+
+#pad{
+	background-color: #222222;
+	padding: 15px;
+	border: solid 30px #FFFFFF;
+	width: 500px;	
+}
+

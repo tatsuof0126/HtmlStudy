@@ -1,0 +1,48 @@
+body{
+	color: #FF0000;
+	background-image: url("../image/background.jpg");
+	background-repeat: repeat-y;
+	background-attachment: fixed;
+	background-size: cover;
+	padding-left: 10px;
+	padding-right: 50px;
+	/*
+	*/
+}
+
+h1{
+	background-color: #FF00FF;
+	color: #FF0000;
+	font-size: 24pt;
+	font-style: italic;
+	width: 300px;
+	padding-left: 10px;
+}
+
+#slime{
+	margin: 10px;
+	width: 300px;
+	border-radius: 25px;
+/*
+	box-shadow: 10px 10px 0px #666666;
+*/
+	opacity: 0.8;
+	float: left;
+}
+
+a {
+	font-size: 20px;
+}
+
+a:visited {
+	color: #FF0000;
+}
+
+a:hover {
+	color: #00FF00;
+	font-size: 30px;
+}
+
+a:active {
+	color: #0000FF;
+}
