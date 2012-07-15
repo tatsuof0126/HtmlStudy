@@ -1,0 +1,100 @@
+/* スタイルシート */
+
+/* 余白の初期化 */
+* {
+	margin: 0px;
+	padding: 0px;
+}
+
+body {
+	background-color: #FFFFCC;	
+}
+
+#container {
+	width: 900px;
+	margin: 0px auto;
+	background-color: #CCCCCC;	
+	border-left: solid 4px #FF9933;
+	border-right: solid 4px #FF9933;
+}
+
+header {
+	width: 900px;
+	height: 200px;
+	background-image: url("../image/background.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+aside {
+	width: 200px;
+	float: left;
+}
+
+#main {
+	width: 660px;
+	padding: 20px;
+	float: left;
+	background-color: #FFFFFF;
+}
+
+footer {
+	width: 900px;
+	clear: both;
+	background-color: #000000;
+}
+
+#title-words {
+	padding-top: 105px;
+	padding-right: 20px;
+	text-align: right;
+	color: #000000;
+	font-size: 28pt;
+	font-weight: bold;
+}
+
+#subtitle-words {
+	padding-top: 0px;
+	padding-right: 20px;
+	text-align: right;
+	color: #000000;
+	font-size: 12pt;
+	font-weight: bold;
+}
+
+nav ul{
+	list-style-type: none;
+}
+
+nav a{
+	text-decoration: none;
+	font-size: 11pt;
+	font-weight: bold;
+	color: #FFFFFF;
+	display: block;
+	height: 25px;
+	padding: 12px 0px 3px 10px;
+	background-color: #333333;
+	border-top: solid 1px #FFFFFF;
+}
+
+nav a.last {
+	border-bottom: solid 1px #FFFFFF;
+}
+
+li.sub a {
+	font-size: 10pt;
+	font-weight: normal;
+	height: 20px;
+	padding: 10px 0px 3px 30px;
+	border-top: dotted 1px #999999;
+}
+
+nav a:hover {
+	background-color: #FF0000;
+}
+
+aside p {
+	padding: 30px 8px;
+	font-size: 10pt;
+}
