@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>jQuery sample</title>
+	<link type="text/css" rel="stylesheet" href="css/test1x.css">
+	
+	<script src="script/jquery-1.7.2.js"></script>
+	
+	<script type="text/javascript">
+		$(function(){
+			
+			$(".thumb").click(function(){
+				var selsrc = $(this).attr("src");
+				$(".image").fadeOut("normal", function(){
+					$(".image").attr("src", selsrc);
+					$(".image").fadeIn();
+				});
+			});
+			
+		});
+		
+	</script>
+</head>
+
+<body>
+	<img src="image/slime.jpg" width="90" height="90" style="border-radius: 25px;" class="thumb">
+	<img src="image/dog.png" width="90" height="90" style="border-radius: 25px;" class="thumb">
+	<img src="image/iruka.jpg" width="90" height="90" style="border-radius: 25px;" class="thumb">
+	<hr>
+	<img src="image/slime.jpg" width="360" height="360" style="border-radius: 25px;" class="image">
+</body>	
+
+</html>

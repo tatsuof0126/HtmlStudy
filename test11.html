@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>jQuery sample</title>
+	<script src="script/jquery-1.7.2.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			$(":button").click(function(){
+				$("span").text("ボタンがクリックされました");
+			});
+		});
+	</script>
+</head>
+
+<body>
+	<input type="button" value="変更">
+	<hr>
+	<span>[変更]ボタンをクリックしてください。</span>
+</body>	
+
+</html>
