@@ -1,64 +1,54 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-		<title>Html Study</title>
-		<script src="js/jquery-1.7.2.js"></script>
-		<script type="text/javascript">
-			$(function() {
-				var window_height = $(window).height();
-				$("#window_height").text(window_height);
-				var second_offset = $("#second_block").offset();
-				$("#second_top").text(second_offset.top);
-
-				$(window).scroll(function() {
-					var scroll_top = $(window).scrollTop();
-
-					$("#scroll_text").text("スクロール値：" + scroll_top);
-					$("#scroll_text").css("top", scroll_top);
-
-					if (Number(scroll_top) + Number(window_height) > Number(second_offset.top)) {
-						$("#second_block").load("data/second_data.txt");
-					}
-				});
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>jQuery sample</title>
+	<link type="text/css" rel="stylesheet" href="css/test1x.css">
+	
+	<script src="script/jquery-1.7.2.js"></script>
+	
+	<script type="text/javascript">
+		$(function(){
+			var imgIndex;
+			var timerId;
+			
+			$("#slideshow").click(function(){
+				imgIndex = 0;
+				changeImage();
+				$("#slideshow").prop("disabled", true);
+				timerId = setInterval(changeImage, 3000);
 			});
-		</script>
-		<style>
-			body {
-				padding: 0;
-				margin: 0
+			
+			var changeImage = function(){
+				var selectedSrc = $(".thumb:eq("+imgIndex+")").attr("src");
+				
+				$(".thumb").css("border", "");
+				$(".thumb:eq("+imgIndex+")").css("border", "thick solid #FF33FF");
+				
+				$(".main").fadeOut("normal", function(){
+					$(".main").attr("src", selectedSrc);
+					$(".main").fadeIn();
+				});
+				
+				imgIndex++;
+				
+				if(imgIndex == $(".thumb").length) {
+					clearInterval(timerId);
+					$("#slideshow").prop("disabled", false);
+				}
 			}
-			.error {
-				background-color: #FFCCCC;
-			}
-			#first_block {
-				background-color: #FFFFCC;
-				height: 800px;
-				width: 600px;
-			}
-			#scroll_block {
-				background-color: #CCFFCC;
-				width: 600px;
-			}
-			#scroll_text {
-				background-color: #FFCCCC;
-				position: absolute;
-				left: 600px;
-			}
-		</style>
-	</head>
+		});
+		
+	</script>
+</head>
 
-	<body>
-		<span id="scroll_text"></span>
-		<div id="first_block">
-			高さが800ピクセルの記事
-			ウィンドウの高さ：<span id="window_height"></span>
-			<br />
-			second_blockの位置：<span id="second_top"></span>
-		</div>
-		<div id="second_block">
-			読み込み中
-		</div>
-	</body>
+<body>
+	<img src="image/slime.jpg" width="90" height="90" style="border-radius: 25px;" class="thumb">
+	<img src="image/dog.png" width="90" height="90" style="border-radius: 25px;" class="thumb">
+	<img src="image/iruka.jpg" width="90" height="90" style="border-radius: 25px;" class="thumb">
+	<input type="button" value="スライドショー" id="slideshow">
+	<hr>
+	<img src="image/dog.png" width="360" height="360" style="border-radius: 25px;" class="main">
+</body>	
 
 </html>

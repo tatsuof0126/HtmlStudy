@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>Html Study</title>
+		<script src="js/jquery-1.7.2.js"></script>
+		<script type="text/javascript">
+			$(function(){
+				$(":radio").prop("disabled", true);
+				
+				$("#qcheck").click(function(){
+					if($("#qcheck").prop("checked")){
+						$(":radio").prop("disabled", false);						
+					} else {
+						$(":radio").prop("disabled", true);						
+					}
+				});
+				
+				$(".price").change(function(){
+					if(Number($("#lprice").val()) <= Number($("#hprice").val())) {
+						$(".price").removeClass("error");
+						$(".alert").text("");
+					} else {
+						$(".price").addClass("error");
+						$(".alert").text("価格帯を正しく入力してください。");
+					}
+				});
+				
+				var placeholdertext = "商品名かカテゴリーを入力してください。";
+				
+				$("#gword").addClass("placeholder");
+				$("#gword").val(placeholdertext);
+				
+				$("#gword").focus(function(){
+					if($("#gword").val() == placeholdertext) {
+						$("#gword").removeClass("placeholder");
+						$("#gword").val("");
+					} 
+				})
+				$("#gword").blur(function(){
+					if($("#gword").val() == "") {
+						$("#gword").addClass("placeholder");
+						$("#gword").val(placeholdertext);
+					} 
+				})
+				
+				
+			});			
+		</script>
+		<style>
+			.error {background-color: #FFCCCC;}
+			.alert {color: #FF0000; font-size:small;}
+			.placeholder {color:#CCCCCC;}
+		</style>
+	</head>
+	
+	<body>
+		<form action="/" method="post">
+			商品キーワード<br />
+			<input type="text" name="gword" id="gword" size="50">
+			<br /><br />
+			価格<br />
+			<input type="text" name="lprice" value="1000" class="price" id="lprice">円〜
+			<input type="text" name="hprice" value="5000" class="price" id="hprice">円
+			<span class="alert"></span>
+			<br /><br />
+			
+			<fieldset>
+				<legend>
+					<input type="checkbox" name="qcheck" id="qcheck">絞り込む
+				</legend>
+				色を選んでください。<br />
+				<input type="radio" name="gcolor" value="color1" checked>暖色系
+				<input type="radio" name="gcolor" value="color2">寒色系
+				<input type="radio" name="gcolor" value="color3">モノトーン系
+				<br /><br />
+				サイズを選んでください。<br />
+				<input type="radio" name="gsize" value="S" checked>Small
+				<input type="radio" name="gsize" value="M">Midium
+				<input type="radio" name="gsize" value="L">Large
+			</fieldset>
+			<br /><br />
+			
+			<input type="submit" value="検索する">
+		</form>
+	</body>
+</html>

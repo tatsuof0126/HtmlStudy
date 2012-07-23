@@ -1,22 +1,80 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-		<title>Html Study</title>
-		<script src="js/jquery-1.7.2.js"></script>
-		<script type="text/javascript">
-			$(function(){
-				$(":button").click(function(){
-					$("span").load("data/data.txt");
-				});
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>jQuery sample</title>
+	<link type="text/css" rel="stylesheet" href="css/test1x.css">
+	
+	<script src="script/jquery-1.7.2.js"></script>
+	
+	<script type="text/javascript">
+		$(function(){
+			$("#button_show").hide();
+			
+			$("#button_hide").click(function(){
+				$("img").hide("fast");
+				$("#button_hide").hide();
+				$("#button_show").show();
 			});
-		</script>
-	</head>
-	
-	<body>
-		<input type="button" value="読み込み">
-		<hr />
-		<span>読み込みボタンをクリックしてください。</span>
-	</body>
+			
+			$("#button_show").click(function(){
+				$("img").show("slow");
+				$("#button_show").hide();
+				$("#button_hide").show();
+			});
+			
+			$("#button_toggle").click(function(){
+				$("img").toggle("slow");
+			});
+			
+			$("#button_slideup").click(function(){
+				$("img").slideUp();
+			});
+			
+			$("#button_slidedown").click(function(){
+				$("img").slideDown();
+			});
+			
+			$("#button_slidetoggle").click(function(){
+				$("img").slideToggle();
+			});
+			
+			$("#button_fadetoggle").click(function(){
+				$("img").fadeToggle();
+			});
+			
+			$("#button_fadeto").click(function(){
+				var opacity = $("#text_fadetext").val();
+				$("img").fadeTo("slow", opacity);
+			});
+			
+			$(".thumb").click(function(){
+				var selsrc = $(this).attr("src");
+				$(".image").attr("src", selsrc);
+			});
+			
+		});
+		
+	</script>
+</head>
+
+<body>
+	<input type="button" class="btn" value="表示" id="button_show">
+	<input type="button" class="btn" value="非表示" id="button_hide">
+	<input type="button" class="btn" value="表示/非表示" id="button_toggle">
+	<br>
+	<input type="button" class="btn" value="SlideUp" id="button_slideup">
+	<input type="button" class="btn" value="SlideDown" id="button_slidedown">
+	<input type="button" class="btn" value="SlideToggle" id="button_slidetoggle">
+	<br>
+	<input type="button" class="btn" value="FadeToggle" id="button_fadetoggle">
+	<input type="text" class="fadetext" value="0.5" id="text_fadetext">
+	<input type="button" class="btn" value="FadeTo" id="button_fadeto">
+	<hr>
+	<img src="image/slime.jpg" width="90" height="90" style="border-radius: 25px;" class="thumb">
+	<img src="image/doc.png" width="90" height="90" style="border-radius: 25px;" class="thumb">
+	<hr>
+	<img src="image/slime.jpg" width="360" height="360" style="border-radius: 25px;" class="image">
+</body>	
+
 </html>
-	

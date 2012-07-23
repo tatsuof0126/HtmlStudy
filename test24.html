@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>Html Study</title>
+		<script src="js/jquery-1.7.2.js"></script>
+		<script type="text/javascript">
+			$(function(){
+				$("a").click(function(){
+					$("span").load("data/momotaro.txt");
+					return false;
+				});
+			});
+		</script>
+	</head>
+	
+	<body>
+		<h2>ももたろう</h2>
+		むかしむかし、あるところに、おじいさんとおばあさんがいました。<br />
+		おじいさんは山にしば刈りに、おばあさんは川に洗濯に行きました。<br />
+		すると、川上から「どんぶらこ、どんぶらこ」と大きなモモが流れてきました。<br />
+		<br />
+		<span><a href="#">【続きを読む】</a></span>
+	</body>
+</html>

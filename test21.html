@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>Html Study</title>
+		<script src="js/jquery-1.7.2.js"></script>
+		<script type="text/javascript">
+			$(function(){
+				$("form").submit(function(){
+					var checkSubmit = true;
+					
+					if($("#uname").val() == ""){
+						$("#uname").addClass("error");
+						$("#uname+span").text("名前を入力してください。");
+						checkSubmit = false;
+					} else {
+						$("#uname").removeClass("error");
+						$("#uname+span").text("");
+					}
+					
+					if($(":radio:checked").length == 0){
+						$(":radio").addClass("error");
+						$(":radio+span").text("性別を入力してください。");
+						checkSubmit = false;
+					} else {
+						$(":radio").removeClass("error");
+						$(":radio+span").text("");
+					}
+					
+					return checkSubmit;
+				});
+				
+				$("#umail").change(function(){
+					if($("#umail").val().match(/^[\w\.\-]+\@[\w\.\-]+$/)){
+						$("#umail").removeClass("error");
+						$("#umail+span").text("");
+					} else {
+						$("#umail").addClass("error");
+						$("#umail+span").text("書式に誤りがあります。");
+					}
+				});
+				
+				$("#uzip").change(function(){
+					if((/^\d{3}\-\d{4}$/).test($("#uzip").val())){
+						$("#uzip").removeClass("error");
+						$("#uzip+span").text("");
+					} else {
+						$("#uzip").addClass("error");
+						$("#uzip+span").text("書式に誤りがあります。");
+					}
+				});
+				
+				$("#uaddress").keyup(function(){
+					var leng = $("#uaddress").val().length;
+					if(leng <= 100){
+						$("#uaddress").removeClass("error");
+						$("#uaddress+span").text(leng+" / 100");
+					} else {
+						$("#uaddress").addClass("error");
+						$("#uaddress+span").text("入力文字数が長すぎます。");
+					}
+				});
+			});			
+		</script>
+		<style>
+			.error {background-color: #FFCCCC;}
+			.alert {color: #FF0000; font-size:small;}
+		</style>
+	</head>
+	
+	<body>
+		<form action="/" method="post">
+			お名前を入力してください。（必須）<br />
+			<input type="text" name="uname" id="uname" value="">
+			<span class="alert"></span>
+			<br /><br />
+			
+			性別を入力してください。（必須）<br />
+			<input type="radio" name="usex" value="M">男性
+			<input type="radio" name="usex" value="F">女性
+			<span class="alert"></span>
+			<br /><br />
+			
+			メールアドレスを入力してください。<br />
+			<input type="text" name="umail" size="50" id="umail">
+			<span class="alert"></span>
+			<br /><br />
+			
+			郵便番号を入力してください。<br />
+			<input type="text" name="uzip" id="uzip">
+			<span class="alert"></span>
+			<br /><br />
+			
+			住所を入力してください。<br />
+			<textarea name="uaddress" id="uaddress" cols="50" rows="3"></textarea>
+			<span class="alert"></span>
+			<br /><br />
+			
+			<input type="submit" value="登録する">
+		</form>
+	</body>
+
+</html>
