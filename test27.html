@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>Html Study</title>
+		<script src="js/jquery-1.7.2.js"></script>
+		<script type="text/javascript">
+			$(function() {
+				$(":button").click(function(){
+					$("#header").html("");
+					$("#data").html("");
+					
+					$.get("data/data.xml",
+						{},
+						createTable,
+						"xml"
+					);
+				});
+				
+				var createTable = function(xml){
+					$(xml).find("dataset").each(function(){
+						var label = $(this).find("data_label").text();
+						$("#header").append("<th>"+label+"</th>");
+						
+						var value = $(this).find("data_value").text();
+						$("#data").append("<td class='val'>"+value+"</td>");
+					});
+				};
+				
+			});
+		</script>
+		<style>
+			table {
+				border: 1px solid #000000;
+				border-spacing: 0;
+				border-collapse: collapse;
+				width: 400px;
+			}
+			
+			th {
+				border: 1px solid #000000;
+				padding: 5px;
+				background: #CCCCCC;
+			}
+			
+			td {
+				border: 1px solid #000000;
+				padding: 5px;
+				text-align: center;
+			}
+			
+			td.val{
+				width: 80px;
+			}
+			
+		</style>
+	</head>
+
+	<body>
+		<input type="button" value="XMLの読みこみ">
+		<hr>
+		
+		<table>
+			<tr id="header"><th>data.xml</th></tr>
+			<tr id="data"><td>データが読み込まれていません。</td></tr>
+		</table>
+		
+	</body>
+
+</html>
