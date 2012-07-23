@@ -1,0 +1,4 @@
+<option value="1_1">ゾウ</option>
+<option value="1_2">キリン</option>
+<option value="1_3">ライオン</option>
+<option value="1_4">サル</option>

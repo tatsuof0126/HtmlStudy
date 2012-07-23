@@ -1,0 +1,5 @@
+<option value="2_1">イルカ</option>
+<option value="2_2">ペンギン</option>
+<option value="2_3">マグロ</option>
+<option value="2_4">サメ</option>
+<option value="2_5">イワシ</option>
