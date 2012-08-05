@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>jQuery sample</title>
+	<link type="text/css" rel="stylesheet" href="css/test1x.css">
+	<link type="text/css" href="css/ui-lightness/jquery-ui-1.8.21.custom.css" rel="stylesheet">
+	<style>
+		.thumb {float: left; margin: 5px;}
+		hr {clear: both;}
+	</style>
+	
+	<script src="script/jquery-1.7.2.js"></script>
+	<script src="js/jquery-ui-1.8.21.custom.min.js"></script>
+	
+	<script type="text/javascript">
+		$(function(){
+			$("#thumbGroup").sortable({opacity: 0.5});
+
+			$(".main").resizable({ghost: true});
+			
+			var imgIndex;
+			var timerId;
+			
+			$("#slideshow").click(function(){
+				imgIndex = 0;
+				changeImage();
+				$("#slideshow").prop("disabled", true);
+				timerId = setInterval(changeImage, 3000);
+			});
+			
+			var changeImage = function(){
+				var selectedSrc = $(".thumb:eq("+imgIndex+")").attr("src");
+				
+				$(".thumb").css("border", "");
+				$(".thumb:eq("+imgIndex+")").css("border", "thick solid #FF33FF");
+				
+				$(".main").fadeOut("normal", function(){
+					$(".main").attr("src", selectedSrc);
+					$(".main").fadeIn();
+				});
+				
+				imgIndex++;
+				
+				if(imgIndex == $(".thumb").length) {
+					clearInterval(timerId);
+					$("#slideshow").prop("disabled", false);
+				}
+			}
+		});
+		
+	</script>
+</head>
+
+<body>
+	<div id="thumbGroup">
+	<img src="image/slime.jpg" width="90" height="90" style="border-radius: 25px;" class="thumb">
+	<img src="image/dog.png" width="90" height="90" style="border-radius: 25px;" class="thumb">
+	<img src="image/iruka.jpg" width="90" height="90" style="border-radius: 25px;" class="thumb">
+	</div>
+	<input type="button" value="スライドショー" id="slideshow">
+	<hr>
+	<img src="image/dog.png" width="360" height="360" style="border-radius: 25px;" class="main">
+</body>	
+
+</html>

@@ -1,0 +1,40 @@
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>エフェクトサンプル</title>
+		<script src="js/jquery-1.7.2.js"></script>
+		<script src="js/jquery-ui-1.8.21.custom.min.js"></script>
+		<link type="text/css" href="css/ui-lightness/jquery-ui-1.8.21.custom.css" rel="stylesheet">
+		<script type="text/javascript">
+			$(function(){
+				$("#button_hide").click(function(){
+					$("img").hide($(":radio:checked").val());
+				});
+				
+				$("#button_show").click(function(){
+					$("img").show($(":radio:checked").val());
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<input type="button" value="非表示" id="button_hide">
+		<input type="button" value="表示" id="button_show">
+		<hr>
+		
+		<input type="radio" name="effect" value="blind" checked="checked">Blind
+		<input type="radio" name="effect" value="clip">Clip
+		<input type="radio" name="effect" value="drop">Drop
+		<input type="radio" name="effect" value="explode">Explode
+		<input type="radio" name="effect" value="fold">Fold
+		<input type="radio" name="effect" value="puff">Puff
+		<input type="radio" name="effect" value="pulsate">Pulsate
+		<input type="radio" name="effect" value="scale">Scale
+		<input type="radio" name="effect" value="slide">Slide
+		<hr>
+		
+		<img src="image/slime.jpg" width="320" height="320">
+		
+	</body>
+</html>
+

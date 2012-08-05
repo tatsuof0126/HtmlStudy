@@ -1,0 +1,109 @@
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>jQueryUIサンプル</title>
+		<link type="text/css" href="css/ui-lightness/jquery-ui-1.8.21.custom.css" rel="stylesheet">
+		<style>
+			#slider {width:300; margin:5;}
+		</style>
+		
+		<script src="js/jquery-1.7.2.js"></script>
+		<script src="js/jquery-ui-1.8.21.custom.min.js"></script>
+		<script type="text/javascript">
+			$(function(){
+				$("#pdate").datepicker({
+					dateFormat: "yy-mm-dd"
+				});
+				
+				$("#slider").slider({
+					range: "min",
+					value: 3,
+					min: 1,
+					max: 5,
+					slide: function(event, ui){
+						$("#star").val(ui.value);
+					}
+				});
+				
+				$("#star").change(function(){
+					$("#slider").slider("value", $("#star").val());
+				});
+				
+				var languageData = [
+					"PHP",
+					"Perl",
+					"Java",
+					"JavaScript",
+					"jQuery",
+					"C#",
+					"C++",
+					"BASIC"
+				];
+				
+				$("#lang").autocomplete({
+					source: languageData
+				});
+				
+				$("#confirm_button").click(function(){
+					$("#dialog").html("送信してもよろしいですか？<hr>");
+					$("#dialog").append("購入日："+$("#pdate").val()+"<br>");
+					$("#dialog").append("評価："+$("#star").val()+"<br>");
+					$("#dialog").append("言語："+$("#lang").val()+"<br>");
+					$("#dialog").append("ご意見："+$("textarea").val()+"<br>");
+					
+					$("#dialog").dialog("open");
+				});
+				
+				$("#dialog").dialog({
+					autoOpen: false,
+					width: 400,
+					height: 400,
+					modal: true,
+					buttons: {
+						"OK": function(){
+							$("form").submit();
+						},
+						"Cancel": function(){
+							$("#dialog").dialog("close");
+						}
+					}
+				});
+				
+			});
+		</script>
+		
+	</head>
+	<body>
+		<form name="form1">
+			この本の購入日を教えてください。<br>
+			<input type="text" name="pdate" value="11-09-01" id="pdate">
+			<br><br>
+			
+			本書の評価を教えてください。（５段階）<br>
+			<select name="star" id="star">
+				<option value="5">５：とてもよい</option>
+				<option value="4">４：よい</option>
+				<option value="3">３：ふつう</option>
+				<option value="2">２：わるい</option>
+				<option value="1">１：とてもわるい</option>
+			</select>
+
+			<div id="slider"></div>		
+			<br><br>
+			
+			興味のある言語を教えてください。<br>
+			<input type="text" name="lang" id="lang" size="30">
+			<br><br>
+			
+			本書に関する意見をお聞かせください。<br>
+			<textarea name="message" cols="40" rows="3"></textarea>
+			<br><br>
+			
+			<input type="button" value="送信する" id="confirm_button">
+		</form>
+		
+		<div id="dialog" title="送信確認"></div>
+		
+	</body>
+</html>
+

@@ -1,0 +1,44 @@
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>エフェクトサンプル</title>
+		<script src="js/jquery-1.7.2.js"></script>
+		<script src="js/jquery-ui-1.8.21.custom.min.js"></script>
+		<link type="text/css" href="css/ui-lightness/jquery-ui-1.8.21.custom.css" rel="stylesheet">
+		<script type="text/javascript">
+			$(function(){
+				$(".thumb").draggable({helper: "clone"});
+				
+				$("#mainid").droppable({
+					// hoverClass: "ui-state-active",
+					hoverClass: "hov",
+					drop: function(event, ui){
+						var selectedSrc = ui.draggable.attr("src");
+						
+						$("#mainid").fadeOut("normal", function(){
+							$("#mainid").attr("src", selectedSrc);
+							$("#mainid").fadeIn();
+						});
+					}
+				});
+			});
+		</script>
+		<style>
+			.hov {
+				background-color: #00FF00;
+				filter: alpha(opacity=60);
+				-moz-opacity:0.6;
+				opacity:0.6;
+			}
+		</style>
+		
+	</head>
+	<body>
+		<img src="image/slime.jpg" width="90" height="90" style="border-radius: 25px;" class="thumb">
+		<img src="image/dog.png" width="90" height="90" style="border-radius: 25px;" class="thumb">
+		<img src="image/iruka.jpg" width="90" height="90" style="border-radius: 25px;" class="thumb">
+		<hr>
+		<img src="image/dog.png" width="360" height="360" style="border-radius: 25px;" class="main" id="mainid">
+	</body>
+</html>
+
